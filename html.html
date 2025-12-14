@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Maaaagggggiiiiiii!</title>
+    <style>
+        /* CSS for Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #ff6f61; /* Festive Coral Red */
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #ff6f61;
+            margin-top: 50px;
+        }
+
+        .countdown-container {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .countdown-box {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            min-width: 100px;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .countdown-time {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .message-box {
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: #fff0f5; /* Light Pink */
+            border: 2px solid #ff6f61;
+            border-radius: 15px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        /* Simple Pulse Animation for Countdown */
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        /* Style for when the birthday arrives! */
+        .birthday-message {
+            font-size: 4em;
+            color: #4CAF50; /* Green for Celebration */
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1> Shubho 20 tomo jonnomdin...    1000 bachar bap ho r kotodini ba bhrombhochari thakbi </h1>
+        <p>ar rate aktu kom bathroom a jas nahole hat ar dag onno jaigai chole jabe</p>
+    </header>
+
+    <h2>aaagggg aaaggggg!</h2>
+
+    <div id="countdown" class="countdown-container">
+        </div>
+
+    <div id="birthday-alert" class="birthday-message">
+        ! 🎉🎊
+    </div>
+
+    <div class="message-box">
+        <h3>chudi son chinta kom kor</h3>
+        <p>Dear Riyaj,</p>
+        <p>level 20 par korar jonno subhecha treat dite bhul le kete debo</p>
+        <p>6 jan College GPL ar jonno ready thakis</p>
+        <p>Best,</p>
+        <p>S</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025  Friend Productions</p>
+    </footer>
+
+
+    <script>
+        // JavaScript for the Countdown Timer
+
+        // Set the date we're counting down to (Riyaj's 20th Birthday: Dec 15, 2025)
+        const countdownDate = new Date("Dec 15, 2025 00:00:00").getTime();
+        const countdownElement = document.getElementById("countdown");
+        const birthdayAlert = document.getElementById("birthday-alert");
+
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in the countdown element
+            countdownElement.innerHTML = `
+                <div class="countdown-box">
+                    <div class="countdown-time">${days}</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-time">${hours}</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-time">${minutes}</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-time">${seconds}</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            `;
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                countdownElement.style.display = 'none'; // Hide the timer
+                birthdayAlert.style.display = 'block'; // Show the big birthday message
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
